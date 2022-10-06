@@ -10,5 +10,15 @@ valeur = valeur.map(&:to_f)
 my_hash = Hash[coin.zip(valeur)]
 
 #Définir la plus grande valeur
-def highest_value(my_hash,valeur)
-    
+#highest_value(my_hash,valeur)
+puts my_hash.sort_by{|c,v| -v.to_f}[0]
+
+#Définir la plus petite valeur
+puts my_hash.sort_by{|c,v| v.to_f}[0]
+
+#Les devises dont le cours est inférieur à 6000
+print my_hash.select!{|c,v| v.to_f<6000}
+puts 
+
+#La devise la plus chère parmi celles dont le cours est inférieur à 6000.
+puts my_hash.sort_by{|c,v| -v.to_f}[0]
